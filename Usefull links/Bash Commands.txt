@@ -1,0 +1,6 @@
+touch  - New file 
+mkdir - New folder
+Pwd - Show current path 
+Ls - show list of items 
+rm - remove file
+rm -r remove directory

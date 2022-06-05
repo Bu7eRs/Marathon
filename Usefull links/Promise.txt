@@ -1,0 +1,16 @@
+const executorCallback = (resolve, reject) => {
+  resolve('Promise succeeded');
+  reject('Promise failed');
+}
+
+const promise = new Promise(executorCallback);
+
+// if the asynchronous operation succeeds, .then will run,
+// and
+promise
+  .then((result) => {
+    console.log(result); // => 'Promise succeeded'
+  })
+  .catch((error) => {
+    console.error(error); // => 'Promise failed'
+  });
