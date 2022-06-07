@@ -1,0 +1,9 @@
+a readable stream has 7 events which it can emit:
+
+'close'
+'data'
+'end'
+'error'
+'pause'
+'readable'
+'resume'
