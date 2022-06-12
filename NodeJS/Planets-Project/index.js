@@ -1,20 +1,24 @@
 const { parse } = require('csv-parse');
-const files = require('fs');
+const fileS = require('fs');
 
-const results = [];
+const filteredData = [];
 
-files.createReadStream('kepler_data.csv')
+function filterData(data) {
+    return data['ASR'] >= '60%';
+}
+
+fileS.createReadStream('CommpeakReport.csv')
+    .pipe(parse({
+        delimiter: ':'
+    }))
     .on('data', (data) => {
-        results.push(data);
+        if(filterData(data))
+        {
+        filteredData.push(data);
+        }
     })
     .on('error', (err) => {
-        console.log(err);
-    })
-    .on('end', () => {
-        console.log(results);
-        console.log('done');
-
+        console.log(err)
     });
 
-
-// parse();
+    console.log(filteredData.length);
